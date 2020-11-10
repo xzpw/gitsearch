@@ -1,6 +1,7 @@
 package com.dm.gitsearch
 
 import android.app.Application
+import com.dm.gitsearch.di.appModule
 import com.dm.gitsearch.di.netWorkModule
 import org.koin.core.context.startKoin
 
@@ -9,7 +10,7 @@ class App: Application() {
         super.onCreate()
         startKoin {
             this@App
-            modules(listOf(netWorkModule) )
+            modules(listOf(netWorkModule, appModule) )
             applicationContext
         }
     }
