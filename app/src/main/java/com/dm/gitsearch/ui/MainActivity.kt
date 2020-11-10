@@ -3,8 +3,6 @@ package com.dm.gitsearch.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.dm.gitsearch.R
 import org.koin.android.viewmodel.ext.android.viewModel
 

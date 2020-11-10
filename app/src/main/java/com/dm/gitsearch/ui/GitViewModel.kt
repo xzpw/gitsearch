@@ -7,10 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dm.gitsearch.api.netmodels.GitHubSearchItemModel
 import com.dm.gitsearch.data.DataSource
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.supervisorScope
+import kotlinx.coroutines.*
 
 class GitViewModel(val dataSource: DataSource): ViewModel() {
     private  val dataMutableLiveData = MutableLiveData<List<GitHubSearchItemModel>> ()
@@ -22,7 +19,8 @@ class GitViewModel(val dataSource: DataSource): ViewModel() {
     }
 
     fun getSearchData (q: String) {
-        viewModelScope.launch(coroutineExceptionHandler) {
+
+        viewModelScope.launch(coroutineExceptionHandler + Dispatchers.IO) {
             supervisorScope {
                 val listData = mutableListOf<GitHubSearchItemModel>()
                 val call1 = async {dataSource.getRepos(0,q)}
