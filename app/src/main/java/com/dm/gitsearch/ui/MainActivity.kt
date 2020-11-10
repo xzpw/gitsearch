@@ -1,7 +1,8 @@
-package com.dm.gitsearch
+package com.dm.gitsearch.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dm.gitsearch.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
